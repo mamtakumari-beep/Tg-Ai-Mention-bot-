@@ -28,11 +28,14 @@ Neeche diye gaye button par click karke es bot ko ek click me Heroku par deploy 
 /jtag   — Joke tag, all members 😂
 /vctag  — VC Invite tag 🎙️ Online members first!
 
+---
+
 ## Mention Commands
 
 /admin or @admin — Tag only admins (6 per msg)
 /all   or @all   — Tag all members (6 per msg)
-   Supports custom messages: /admin plz join vc
+
+Supports custom messages: /admin plz join vc
 
 ## Control Commands (Admins only)
 
@@ -40,10 +43,14 @@ Neeche diye gaye button par click karke es bot ko ek click me Heroku par deploy 
 /pause  — ⏸️ Pause tagging temporarily
 /resume — ▶️ Resume paused tagging
 
+---
+
 ## Owner Commands
 
 /broadcast <msg> — Broadcast to all users & groups
 /stats — View bot usage statistics
+
+---
 
 ## CREDITS
 - [Comeback](https://t.me/comeback_009)
