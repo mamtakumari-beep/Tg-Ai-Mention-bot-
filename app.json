@@ -1,0 +1,27 @@
+{
+  "name": "TG AI Mention & Tag Bot",
+  "description": "Telegram Group AI Mention and Mass Tagging Bot powered by Gemini AI.",
+  "repository": "https://github.com",
+  "logo": "https://telegram.org",
+  "keywords": ["telegram", "bot", "ai", "gemini", "tagall", "mention"],
+  "env": {
+    "TELEGRAM_TOKEN": {
+      "description": "BotFather se mila hua aapka Telegram Bot Token.",
+      "required": true
+    },
+    "GEMINI_API_KEY": {
+      "description": "Google AI Studio se mili hui free Gemini API Key.",
+      "required": true
+    },
+    "HEROKU_APP_NAME": {
+      "description": "Jo app naam aap Heroku par rakh rahe hain (wahi same yahan likhein).",
+      "required": true
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
+}
