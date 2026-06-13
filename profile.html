@@ -63,3 +63,52 @@
     </div>
 
     
+<script>
+        function initTelegramApp() {
+            // Telegram WebApp Object Check
+            const tg = window.Telegram?.WebApp;
+
+            if (tg) {
+                tg.ready(); 
+                tg.expand(); 
+
+                // Data fetch karne ki koshish karein
+                const user = tg.initDataUnsafe?.user; 
+
+                if (user && user.id) {
+                    // Agar user mil gaya toh loading hatao aur details dikhao
+                    document.getElementById('u-name').innerText = `${user.first_name} ${user.last_name || ''}`;
+                    document.getElementById('u-username').innerText = user.username ? `@${user.username}` : 'No Username';
+                    document.getElementById('u-id').innerText = user.id;
+                    document.getElementById('u-lang').innerText = user.language_code || 'en';
+                    
+                    // 🌟 अगर टेलीग्राम यूजर की फोटो का यूआरएल देता है तो उसे अपडेट करें
+                    if (user.photo_url) {
+                        document.getElementById('u-avatar').src = user.photo_url;
+                    }
+                    
+                    // Interval ko rokne ke liye
+                    clearInterval(checkInterval);
+                }
+            }
+        }
+
+        // Agar data slow load ho raha hai, toh yeh har 500ms (0.5 second) me check karega
+        const checkInterval = setInterval(initTelegramApp, 500);
+
+        // Max 5 seconds tak check karega, agar fir bhi nahi mila toh Browser mode default data dikhayega
+        setTimeout(() => {
+            clearInterval(checkInterval);
+            if (document.getElementById('u-id').innerText === "Loading...") {
+                document.getElementById('u-name').innerText = "Web Browser Mode";
+                document.getElementById('u-username').innerText = "@not_inside_tg";
+                document.getElementById('u-id').innerText = "Offline_ID_101";
+                document.getElementById('u-lang').innerText = "en";
+                // ब्राउज़र मोड में एक फूल वाली डिफ़ॉल्ट इमेज दिखेगी
+                document.getElementById('u-avatar').src = "https://cloudflare.com";
+            }
+        }, 5000);
+                    </script>
+
+</body>
+</html>
