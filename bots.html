@@ -1,0 +1,128 @@
+<body>
+        
+    <!-- Feature 2: Bot Details -->
+    <div class="card" id="bot-card">
+        <h3>🤖 Bot 1 Details</h3>
+        <p><span class="bold">Bot Name:</span> ˹ʟᴀᴀᴅᴏ ꭙ ᴍᴜsɪᴄ˼ ♪</p>
+        <p><span class="bold">Bot Username:</span> @laado_musicbot</p>
+        <p><span class="bold">Status:</span> ● online</p>
+    </div>
+    
+    <div class="card" id="bot-card">
+        <h3>🤖 Bot 2 Details</h3>
+        <p><span class="bold">Bot Name:</span> 𝗣𝗅𝗮𝘺𝘦𝘳𝘱𝙧𝘰 ꭙ 𝗠𝑢𝑠𝑖𝑐 ♪</p>
+        <p><span class="bold">Bot Username:</span> @PlayerPro_MusicBot</p>
+        <p><span class="bold">Status:</span> ● online</p>
+   </div>
+
+    <div class="card" id="bot-card">
+        <h3>🤖 Bot 3 Details</h3>
+        <p><span class="bold">Bot Name:</span> ˹ᴋᴜᴋᴜ ꭙ ᴍᴜꜱɪᴄ˼ ♪</p>
+        <p><span class="bold">Bot Username:</span> @Kuku_MusicBot</p>
+        <p><span class="bold">Status:</span> ● online</p>
+    </div>
+
+  <!-- रंग-बिरंगे बटनों का नया HTML कोड -->
+<div class="custom-bottom-container">
+    <button class="custom-bottom-btn bot1-btn" onclick="openBot1(event)" ontouchstart="openBot1(event)">Bot 1</button>
+    <button class="custom-bottom-btn bot2-btn" onclick="openBot2(event)" ontouchstart="openBot2(event)">Bot 2</button>
+    <button class="custom-bottom-btn bot3-btn" onclick="openBot3(event)" ontouchstart="openBot3(event)">Bot 3</button>
+</div>
+
+<style>
+    /* बटन कंटेनर को नीचे फिक्स करने के लिए */
+    .custom-bottom-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 8px 6px; 
+        box-sizing: border-box;
+        background-color: #17212b; /* डार्क बैकग्राउंड */
+        z-index: 9999;
+        display: flex;
+        flex-wrap: wrap; /* 1 लाइन में 3 होकर नीचे आएंगे */
+        gap: 6px; 
+    }
+
+    /* बटनों का बेसिक डिज़ाइन */
+    .custom-bottom-btn {
+        flex: 1 1 calc(33.33% - 4px); /* 1 लाइन में 3 बटन्स */
+        padding: 10px 4px; 
+        color: #ffffff;
+        border: none;
+        border-radius: 6px;
+        font-size: 11px; 
+        font-weight: bold;
+        cursor: pointer;
+        white-space: nowrap; 
+        text-align: center;
+        transition: background 0.2s ease;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent; /* मोबाइल टच रिस्पॉन्स को फ़ास्ट करने के लिए */
+    }
+
+    /* 1. बॉट 1 बटन: संतरा रंग (Orange) */
+    .bot1-btn { background-color: #e67e22; }
+    .bot1-btn:active { background-color: #d35400; }
+
+    /* 2. बॉट 2 बटन: गुलाबी/लाल रंग (Pinkish Red) */
+    .bot2-btn { background-color: #e84393; }
+    .bot2-btn:active { background-color: #c2185b; }
+
+    /* 3. बॉट 3 बटन: फिरोजी/लाइट ग्रीन (Teal/Mint Green) */
+    .bot3-btn { background-color: #10b981; }
+    .bot3-btn:active { background-color: #059669; }
+    
+    /* पेज का कंटेंट बटनों के पीछे न छुपे */
+    body {
+        padding-bottom: 95px !important; 
+    }
+</style>
+
+<!-- टेलीग्राम का जावास्क्रिप्ट SDK -->
+<script src="https://telegram.org"></script>
+
+<script>
+    // टेलीग्राम वेब ऐप को तुरंत इनिशियलाइज करना
+    const tg = window.Telegram.WebApp;
+    
+    // यह टेलीग्राम को बताता है कि ऐप लोड हो चुका है, जिससे फर्स्ट क्लिक तुरंत काम करे
+    tg.ready();
+    tg.expand();
+
+    // डबल क्लिक या टच लैग को रोकने के लिए हेल्पर फ़ंक्शन
+    function handleNavigation(e, url) {
+        if (e) {
+            e.preventDefault(); // डिफ़ॉल्ट ब्राउज़र बिहेवियर को रोकना
+            e.stopPropagation();
+        }
+        
+        // टेलीग्राम SDK के ज़रिए लिंक खोलना
+        if (tg && typeof tg.openTelegramLink === 'function') {
+            tg.openTelegramLink(url);
+        } else {
+            window.open(url, '_blank'); // बैकअप अगर SDK लोड न हुआ हो
+        }
+    }
+
+
+    // 1. Bot 1 का लिंक
+    function openBot1(e) {
+        handleNavigation(e, "https://t.me/laado_musicbot");
+    }
+
+    // 2. Bot 2 का लिंक
+    function openBot2(e) {
+        handleNavigation(e, "https://t.me/PlayerPro_MusicBot");
+    }
+
+    // 3. Bot 3 का लिंक
+    function openBot3(e) {
+        handleNavigation(e, "https://t.me/Kuku_MusicBot");
+    }
+
+</script>
+    
+</body>
+</html>
