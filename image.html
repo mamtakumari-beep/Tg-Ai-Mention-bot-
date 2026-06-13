@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat UI Example</title>
+    <style>
+        /* Base page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Chat container framework */
+        .chat-box {
+            width: 100%;
+            max-width: 450px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        /* 1. Main Row Container (Flexbox) */
+        .chat-message-row {
+            display: flex;
+            align-items: flex-start; /* Items ko upar se barabar rakhta hai */
+            gap: 12px;               /* DP aur text ke beech ki doori */
+            margin-bottom: 20px;
+        }
+
+        /* 2. Circle Profile Picture Styling */
+        .chat-dp {
+            width: 45px;            /* DP ki width */
+            height: 45px;           /* DP ki height (dono same honi chahiye) */
+            border-radius: 50%;     /* Image ko ekdum gol (circle) banata hai */
+            object-fit: cover;      /* Rectangular images ko bina kharab kiye fit karta hai */
+            flex-shrink: 0;         /* Lambe text hone par bhi image pichkegi nahi */
+            border: 2px solid #e0e0e0;
+        }
+
+        /* 3. Text Area Wrapper */
+        .message-content-wrapper {
+            display: flex;
+            flex-direction: column; /* Naam, bubble aur time ko upar-niche set karta hai */
+            max-width: 75%;         /* Screen ke hisaab se width limit karta hai */
+        }
+
+        /* User Name Styling */
+        .user-name {
+            font-size: 13px;
+            font-weight: bold;
+            color: #555555;
+            margin-bottom: 4px;
+        }
+
+        /* 4. Chat Bubble Body */
+        .message-bubble {
+            background-color: #f1f0f0; /* Light gray background */
+            color: #333333;
+            padding: 10px 14px;
+            border-radius: 0px 16px 16px 16px; /* Left-Top corner sharp, baaki rounded */
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* Message Time Styling */
+        .message-time {
+            font-size: 11px;
+            color: #999999;
+            margin-top: 4px;
+            align-self: flex-end; /* Time ko bubble ke right side me khiskayega */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Chat Box Container -->
+    <div class="chat-box">
+
+        <!-- Single Message Row -->
+        <div class="chat-message-row">
+            
+            <!-- Left Side: Circle DP -->
+            <img src="my-dp.jpg" alt="User Avatar" class="chat-dp">
+            
+            <!-- Right Side: Content Area -->
+            <div class="message-content-wrapper">
+                <!-- Sender Name -->
+                <div class="user-name">Niraj Kumar</div>
+                
+                <!-- Chat Bubble -->
+                <div class="message-bubble">
+                    Hey! Yeh responsive chat bubble hai. Isme image hamesha left side me ek perfect circle shape me rahegi.
+                </div>
+                
+                <!-- Time Stamp -->
+                <div class="message-time">10:42 AM</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
