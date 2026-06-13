@@ -3,181 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TG Mini App</title>
-    <!-- Telegram Web App Script (Head me load hona jaroori hai) -->
+    <title>TG Mini App - Chat UI</title>
+    <!-- Telegram Web App Script -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: var(--tg-theme-bg-color, #ffffff);
+            background-color: var(--tg-theme-bg-color, #f4f7f6);
             color: var(--tg-theme-text-color, #000000);
             padding: 20px;
             margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px; /* हर बॉक्स के बीच दूरी रखने के लिए */
         }
-        .card {
-            background: var(--tg-theme-secondary-bg-color, #f0f0f0);
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        h3 { margin-top: 0; color: #2481cc; }
-        p { margin: 5px 0; font-size: 14px; }
-        .bold { font-weight: bold; }
         
-        /* 🌟 प्रोफाइल फोटो के लिए नया डिज़ाइन */
-        .avatar-container {
-            text-align: center;
-            margin-bottom: 15px;
+        .chat-box {
+            width: 100%;
+            max-width: 450px;
+            background: var(--tg-theme-secondary-bg-color, #ffffff);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
         }
-        .user-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: 3px solid #2481cc;
-            object-fit: cover;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            margin: 0 auto;
+
+        .chat-message-row {
+            display: flex;
+            align-items: flex-start; 
+            gap: 12px;               
+        }
+
+        .chat-dp {
+            width: 45px;            
+            height: 45px;           
+            border-radius: 50%;     
+            object-fit: cover;      
+            flex-shrink: 0;         
+            border: 2px solid #e0e0e0;
+        }
+
+        .message-content-wrapper {
+            display: flex;
+            flex-direction: column; 
+            max-width: 75%;         
+            width: 100%;
+        }
+
+        .user-name {
+            font-size: 13px;
+            font-weight: bold;
+            color: #555555;
+            margin-bottom: 4px;
+        }
+
+        .message-bubble {
+            background-color: #f1f0f0; 
+            color: #333333;
+            padding: 10px 14px;
+            border-radius: 0px 16px 16px 16px; 
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .message-time {
+            font-size: 11px;
+            color: #999999;
+            margin-top: 4px;
+            align-self: flex-end; 
+        }
+
+        .button-container {
+            text-align: center;  
+            width: 100%;        
+            margin-top: 10px;     
+        }
+
+        .help-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: bold;
         }
     </style>
 </head>
-       <body>
-      <h2>Welcome dear 👀</h2>
+<body>
+
+    <h2>Welcome dear 👀</h2>
     <h4>🎧 Looking For A Music Bot? ✨Fast • Smooth • 24/7 Active, Play 🔍 Your Favorite Songs Instantly, Enjoy Music Without Hassle 🎶 Try It Once, You'll Love It 💞</h4>
 
-     <h2>🤖 Music Bot Collective</h2>
-
-        <div class="card" id="active-card">
+    <h2>🤖 Music Bot Collective</h2>
+    <div class="card" id="active-card">
         <h3>Total Bots 10</h3>
-        <p><span class="bold">Active Bots:</span> 03</p>
+        <p><span class="bold">Active Bot</span> 03</p>
+    </div>
+    <!-- Chat Box 1 -->
+    <div class="chat-box">
+        <div class="chat-message-row">
+            <img src="my-dp.png" alt="User Avatar" class="chat-dp">
+            <div class="message-content-wrapper">
+                <div class="user-name">Laado Music</div>
+                <div class="message-bubble">Username: @laado_musicbot</div>
+                <div class="message-time">⁠● online</div>
+                <div class="button-container">
+                    <a href="https://t.me/laado_musicbot" class="help-button">open</a>
+                </div>
+            </div>
         </div>
-       </body>
-
-    <body>
-        
-    <!-- Feature 2: Bot Details -->
-    <div class="card" id="bot-card">
-        <h3>🤖 Bot 1 Details</h3>
-        <p><span class="bold">Bot Name:</span> ˹ʟᴀᴀᴅᴏ ꭙ ᴍᴜsɪᴄ˼ ♪</p>
-        <p><span class="bold">Bot Username:</span> @laado_musicbot</p>
-        <p><span class="bold">Status:</span> ● online</p>
-    </div>
-    
-    <div class="card" id="bot-card">
-        <h3>🤖 Bot 2 Details</h3>
-        <p><span class="bold">Bot Name:</span> 𝗣𝗅𝗮𝘺𝘦𝘳𝘱𝙧𝘰 ꭙ 𝗠𝑢𝑠𝑖𝑐 ♪</p>
-        <p><span class="bold">Bot Username:</span> @PlayerPro_MusicBot</p>
-        <p><span class="bold">Status:</span> ● online</p>
-   </div>
-
-    <div class="card" id="bot-card">
-        <h3>🤖 Bot 3 Details</h3>
-        <p><span class="bold">Bot Name:</span> ˹ᴋᴜᴋᴜ ꭙ ᴍᴜꜱɪᴄ˼ ♪</p>
-        <p><span class="bold">Bot Username:</span> @Kuku_MusicBot</p>
-        <p><span class="bold">Status:</span> ● online</p>
     </div>
 
-  <!-- रंग-बिरंगे बटनों का नया HTML कोड -->
-<div class="custom-bottom-container">
-    <button class="custom-bottom-btn bot1-btn" onclick="openBot1(event)" ontouchstart="openBot1(event)">Bot 1</button>
-    <button class="custom-bottom-btn bot2-btn" onclick="openBot2(event)" ontouchstart="openBot2(event)">Bot 2</button>
-    <button class="custom-bottom-btn bot3-btn" onclick="openBot3(event)" ontouchstart="openBot3(event)">Bot 3</button>
-</div>
+    <!-- Chat Box 2 -->
+    <div class="chat-box">
+        <div class="chat-message-row">
+            <img src="my-dp.png" alt="User Avatar" class="chat-dp">
+            <div class="message-content-wrapper">
+                <div class="user-name">playerpro music</div>
+                <div class="message-bubble">Username: @PlayerPro_MusicBot</div>
+                <div class="message-time">● online</div>
+                <div class="button-container">
+                    <a href="https://t.me/PlayerPro_MusicBot" class="help-button">open</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<style>
-    /* बटन कंटेनर को नीचे फिक्स करने के लिए */
-    .custom-bottom-container {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 8px 6px; 
-        box-sizing: border-box;
-        background-color: #17212b; /* डार्क बैकग्राउंड */
-        z-index: 9999;
-        display: flex;
-        flex-wrap: wrap; /* 1 लाइन में 3 होकर नीचे आएंगे */
-        gap: 6px; 
-    }
+    <!-- Chat Box 3 -->
+    <div class="chat-box">
+        <div class="chat-message-row">
+            <img src="my-dp.png" alt="User Avatar" class="chat-dp">
+            <div class="message-content-wrapper">
+                <div class="user-name">kuku Music</div>
+                <div class="message-bubble">Username: @Kuku_MusicBot</div>
+                <div class="message-time">● online</div>
+                <div class="button-container">
+                    <a href="https://t.me/Kuku_MusicBot" class="help-button">open</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    /* बटनों का बेसिक डिज़ाइन */
-    .custom-bottom-btn {
-        flex: 1 1 calc(33.33% - 4px); /* 1 लाइन में 3 बटन्स */
-        padding: 10px 4px; 
-        color: #ffffff;
-        border: none;
-        border-radius: 6px;
-        font-size: 11px; 
-        font-weight: bold;
-        cursor: pointer;
-        white-space: nowrap; 
-        text-align: center;
-        transition: background 0.2s ease;
-        box-sizing: border-box;
-        -webkit-tap-highlight-color: transparent; /* मोबाइल टच रिस्पॉन्स को फ़ास्ट करने के लिए */
-    }
-
-    /* 1. बॉट 1 बटन: संतरा रंग (Orange) */
-    .bot1-btn { background-color: #e67e22; }
-    .bot1-btn:active { background-color: #d35400; }
-
-    /* 2. बॉट 2 बटन: गुलाबी/लाल रंग (Pinkish Red) */
-    .bot2-btn { background-color: #e84393; }
-    .bot2-btn:active { background-color: #c2185b; }
-
-    /* 3. बॉट 3 बटन: फिरोजी/लाइट ग्रीन (Teal/Mint Green) */
-    .bot3-btn { background-color: #10b981; }
-    .bot3-btn:active { background-color: #059669; }
-    
-    /* पेज का कंटेंट बटनों के पीछे न छुपे */
-    body {
-        padding-bottom: 95px !important; 
-    }
-</style>
-
-<!-- टेलीग्राम का जावास्क्रिप्ट SDK -->
-<script src="https://telegram.org"></script>
-
-<script>
-    // टेलीग्राम वेब ऐप को तुरंत इनिशियलाइज करना
-    const tg = window.Telegram.WebApp;
-    
-    // यह टेलीग्राम को बताता है कि ऐप लोड हो चुका है, जिससे फर्स्ट क्लिक तुरंत काम करे
-    tg.ready();
-    tg.expand();
-
-    // डबल क्लिक या टच लैग को रोकने के लिए हेल्पर फ़ंक्शन
-    function handleNavigation(e, url) {
-        if (e) {
-            e.preventDefault(); // डिफ़ॉल्ट ब्राउज़र बिहेवियर को रोकना
-            e.stopPropagation();
-        }
-        
-        // टेलीग्राम SDK के ज़रिए लिंक खोलना
-        if (tg && typeof tg.openTelegramLink === 'function') {
-            tg.openTelegramLink(url);
-        } else {
-            window.open(url, '_blank'); // बैकअप अगर SDK लोड न हुआ हो
-        }
-    }
-
-
-    // 1. Bot 1 का लिंक
-    function openBot1(e) {
-        handleNavigation(e, "https://t.me/laado_musicbot");
-    }
-
-    // 2. Bot 2 का लिंक
-    function openBot2(e) {
-        handleNavigation(e, "https://t.me/PlayerPro_MusicBot");
-    }
-
-    // 3. Bot 3 का लिंक
-    function openBot3(e) {
-        handleNavigation(e, "https://t.me/Kuku_MusicBot");
-    }
-
-</script>
-    
 </body>
 </html>
